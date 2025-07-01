@@ -1,0 +1,27 @@
+.form-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.brand-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #111827;
+}
+
+.brand-sub {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+.input-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  line-height: 1.2;
+  text-align: left;
+}
