@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { DUMMY_USERS } from '../features/auth/dummyUsers';
 import { useAuth } from '../features/auth/authContext';
 import './SignIn.css';
@@ -41,7 +41,8 @@ const SignIn: React.FC = () => {
       return;
     }
 
-    login();
+    const { firstName, lastName } = user;
+    login({ email, firstName, lastName });
     navigate('/');
   };
 
@@ -98,6 +99,13 @@ const SignIn: React.FC = () => {
           <p className="mb-1 font-medium">Test accounts:</p>
           <p>demo@example.com / password123</p>
           <p>test@user.com / testpass</p>
+        </div>
+
+        <div className="mt-6 text-center text-sm text-gray-500">
+          <span>Don't have an account?</span>
+          <Link to="/signup" className="text-blue-600 hover:underline">
+            Sign up
+          </Link>
         </div>
       </form>
     </div>
