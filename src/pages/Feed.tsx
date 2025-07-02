@@ -23,7 +23,7 @@ const Feed: React.FC = () => {
     if (!isAuthenticated) {
       setShowModal(true);
     } else {
-      alert('Feature not implemented');
+      alert('function not implemented');
     }
   };
 
