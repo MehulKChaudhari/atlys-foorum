@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../features/auth/authContext';
-import { LogIn, LogOut, MessageCircle } from 'lucide-react';
+import { LogIn, LogOut } from 'lucide-react';
 
 const Navbar = () => {
   const { isAuthenticated, currentUser, logout } = useAuth();
@@ -12,7 +12,11 @@ const Navbar = () => {
         onClick={() => navigate('/')}
         className="flex cursor-pointer items-center gap-2"
       >
-        <MessageCircle size={22} strokeWidth={2.2} />
+        <img
+          src="/foorum.png"
+          alt="User avatar"
+          className="h-8 w-8 object-cover"
+        />
         <span className="text-lg font-semibold text-gray-900">foo-rum</span>
       </div>
 
@@ -20,7 +24,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <img
-              src="https://i.pravatar.cc/150?img=4"
+              src="https://i.pravatar.cc/150?img=67"
               alt="User avatar"
               className="h-8 w-8 rounded-full object-cover"
             />

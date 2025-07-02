@@ -1,11 +1,24 @@
+.post-wrapper {
+  padding: 0.5rem;
+  background-color: #eeeeef;
+  border-radius: 1rem;
+}
+
+.post-container {
+  border-radius: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
 .post-item {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e7eb;
   transition:
     transform 0.15s ease,
     box-shadow 0.2s;
   animation: slide-up 0.4s ease;
 }
 
-.post-item:hover {
+.post-wrapper:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
@@ -28,6 +41,7 @@
 
 .post-action:hover {
   transform: scale(1.15);
+  cursor: pointer;
 }
 
 .post-like:hover {
@@ -43,6 +57,14 @@
 .post-share:hover {
   color: #38a169;
   background-color: rgba(56, 161, 105, 0.09);
+}
+
+.post-emoji {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes slide-up {
@@ -103,12 +125,6 @@
   60% {
     transform: translateY(-1px);
   }
-}
-
-.feed-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px 16px;
 }
 
 @media (max-width: 640px) {

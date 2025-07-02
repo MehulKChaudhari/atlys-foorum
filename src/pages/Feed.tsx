@@ -41,7 +41,7 @@ const Feed: React.FC = () => {
       id: Date.now(),
       name: `${currentUser.firstName} ${currentUser.lastName}`,
       content: content,
-      avatarUrl: 'https://i.pravatar.cc/150?img=4',
+      avatarUrl: `https://i.pravatar.cc/150?img=67`,
       emoji: emoji,
       timestamp: Date.now(),
     };
