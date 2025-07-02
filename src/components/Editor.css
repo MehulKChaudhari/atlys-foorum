@@ -26,6 +26,7 @@
 .action-btn:hover {
   background-color: #d1d2d3;
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .publish-btn {
@@ -37,6 +38,7 @@
   background-color: #2563eb;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   transform: translateY(-1px);
+  cursor: pointer;
 }
 
 .publish-btn:disabled {
@@ -60,4 +62,13 @@
   background-color: white;
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
+}
+
+@media (max-width: 640px) {
+  .toolbar-container {
+    flex-wrap: wrap;
+  }
+  .toolbar-container select {
+    width: 50%;
+  }
 }

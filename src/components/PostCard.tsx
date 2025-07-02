@@ -38,9 +38,9 @@ const PostCard: React.FC<PostCardProps> = ({ post, onClick }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-start text-sm text-gray-700 gap-3">
-              <span className="post-emoji w-10 h-10 flex items-center justify-center">
-                <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-xl">
+            <div className="flex items-start gap-3 text-sm text-gray-700">
+              <span className="post-emoji flex h-10 w-10 items-center justify-center">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-xl">
                   {emoji}
                 </span>
               </span>

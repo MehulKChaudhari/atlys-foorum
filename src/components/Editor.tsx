@@ -51,8 +51,8 @@ const Editor: React.FC<PostEditorProps> = ({ onNewPost, onClick }) => {
   return (
     <div className="editor-wrapper">
       <div className="editor-container">
-        <div className="flex items-center justify-between border-b border-gray-100 p-4">
-          <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-xl">
+        <div className="flex items-center justify-between gap-1 border-b border-gray-100 px-4 py-3 sm:gap-0">
+          <div className="toolbar-container flex items-center gap-2 rounded-xl bg-gray-100 p-1">
             <select
               className="input-field cursor-pointer border-none bg-transparent text-sm text-gray-700 outline-none"
               onChange={onClick}
@@ -60,7 +60,7 @@ const Editor: React.FC<PostEditorProps> = ({ onNewPost, onClick }) => {
               <option>Paragraph</option>
             </select>
 
-            <div className="ml-2 flex items-center gap-1 ">
+            <div className="ml-2 flex items-center gap-1">
               <button
                 className="toolbar-btn rounded p-2 text-gray-600 hover:bg-gray-100"
                 onClick={onClick}
@@ -111,20 +111,19 @@ const Editor: React.FC<PostEditorProps> = ({ onNewPost, onClick }) => {
               </button>
             </div>
           </div>
-
           <button
-            className="rounded-sm bg-rose-200 p-2 text-gray-400 transition-colors hover:bg-rose-300 hover:text-rose-500"
+            className="rounded-sm bg-rose-200 p-2 text-gray-400 transition-colors hover:cursor-pointer hover:bg-rose-300 hover:text-rose-500"
             onClick={onClick}
           >
-            <Trash2 size={16} strokeWidth={2} color="red"/>
+            <Trash2 size={16} strokeWidth={2} color="red" />
           </button>
         </div>
-        <div className="p-4">
-          <div className="mb-4 flex items-start gap-3">
+        <div className="px-4 py-3">
+          <div className="flex items-start gap-3">
             <select
               value={selectedEmoji}
               onChange={(e) => setSelectedEmoji(e.target.value)}
-              className="emoji-select"
+              className="emoji-select hover:cursor-pointer"
             >
               {emojiOptions.map((emoji) => (
                 <option key={emoji} value={emoji}>
@@ -142,7 +141,7 @@ const Editor: React.FC<PostEditorProps> = ({ onNewPost, onClick }) => {
             />
           </div>
         </div>
-        <div className="flex items-center justify-between border-t border-gray-100 p-4">
+        <div className="flex items-center justify-between border-t border-gray-100 px-4 py-2">
           <div className="flex items-center gap-3">
             <button
               className="action-btn rounded p-2 text-gray-500 hover:bg-gray-100"
@@ -169,7 +168,7 @@ const Editor: React.FC<PostEditorProps> = ({ onNewPost, onClick }) => {
             disabled={postContent.trim().length === 0}
             className="publish-btn flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
           >
-            <Send size={16} />
+            <Send size={18} />
           </button>
         </div>
       </div>
