@@ -1,6 +1,6 @@
 # foo-rum
 
-A minimal forum style frontend built with React, and TypeScript.
+A minimal social media feed page with dummy authentication frontend built with React, and TypeScript.
 
 ---
 
