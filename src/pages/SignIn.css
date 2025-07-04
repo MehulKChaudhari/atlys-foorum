@@ -25,3 +25,21 @@
   line-height: 1.2;
   text-align: left;
 }
+
+.showpassword-toggle {
+  transform: translateY(-50%);
+  transition: color 0.2s ease;
+}
+
+.input-error {
+  border-color: #dc2626;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

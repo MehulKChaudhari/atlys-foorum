@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { DUMMY_USERS } from '../features/auth/dummyUsers';
 import { useAuth } from '../features/auth/authContext';
+import { Eye, EyeOff } from 'lucide-react';
 import './SignIn.css';
 
 const SignUp: React.FC = () => {
@@ -10,6 +11,8 @@ const SignUp: React.FC = () => {
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
@@ -75,7 +78,7 @@ const SignUp: React.FC = () => {
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className={`w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none ${error && !firstName ? 'input-error' : ''}`}
             />
           </div>
           <div className="w-1/2">
@@ -86,7 +89,7 @@ const SignUp: React.FC = () => {
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className={`w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none ${error && !lastName ? 'input-error' : ''}`}
             />
           </div>
         </div>
@@ -99,7 +102,7 @@ const SignUp: React.FC = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+            className={`w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none ${error && error.includes('email') ? 'input-error' : ''}`}
           />
         </div>
 
@@ -107,24 +110,42 @@ const SignUp: React.FC = () => {
           <label className="mb-1 block text-sm font-medium text-gray-700">
             Password
           </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none"
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={`w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none ${error && error.includes('Passwords') ? 'input-error' : ''}`}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 text-gray-500 hover:text-gray-700 showpassword-toggle"
+            >
+              {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         <div className="mb-5">
           <label className="mb-1 block text-sm font-medium text-gray-700">
             Confirm Password
           </label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none"
-          />
+          <div className="relative">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className={`w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-blue-600 focus:outline-none ${error && error.includes('Passwords') ? 'input-error' : ''}`}
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-3 top-1/2 text-gray-500 hover:text-gray-700 showpassword-toggle"
+            >
+              {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         {error && <p className="input-error">{error}</p>}
